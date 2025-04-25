@@ -36,7 +36,7 @@ function showInBrowser(countries) {
 function showMoreDetails(country) {
     const displayArea = document.getElementById("displayArea");
 
-    // Clear existing details
+    
     const existingDiv = document.getElementById(`country-${country.cca3}`);
     if (existingDiv) {
         existingDiv.remove();
@@ -48,7 +48,7 @@ function showMoreDetails(country) {
 
     const languages = country.languages ? Object.values(country.languages).join(", ") : "N/A";
     const currencies = country.currencies ? Object.values(country.currencies).map(c => c.name).join(", ") : "N/A";
-    const states = country.subregion ? country.subregion : "N/A"; // Some countries have states/regions
+    const states = country.subregion ? country.subregion : "N/A"; 
 
     div.innerHTML = `
         <strong>Country:</strong> ${country.name.common}<br>
@@ -73,10 +73,10 @@ function showWeather(lat, lon, countryName) {
         .then(res => res.json())
         .then(data => {
             alert(`Weather in ${countryName}:
-🌡️ Temp: ${data.main.temp}°C
-☁️ Condition: ${data.weather[0].description}
-💧 Humidity: ${data.main.humidity}%
-🌬️ Wind: ${data.wind.speed} m/s`);
+ Temp: ${data.main.temp}°C
+ Condition: ${data.weather[0].description}
+ Humidity: ${data.main.humidity}%
+ Wind: ${data.wind.speed} m/s`);
         })
         .catch(err => alert("Weather data not available."));
 }
